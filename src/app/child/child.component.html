@@ -1,0 +1,32 @@
+<!-- <div [ngStyle]="{
+  backgroundColor: bgColor,
+  color : cl,
+  fontFamily : font
+}">
+
+  Composant Enfant ************
+
+</div> -->
+
+<div [ngClass]="{
+  c1: class1,
+  c2: class2,
+  c3: class3
+}">
+
+  Test de NgClass
+
+</div>
+
+<div appCustomDir class="cl">
+
+  Test d'une directive 
+</div>
+
+<button class="btn btn-danger" (click)="changeStyle()">
+  Change Style
+</button>
+
+<button class="btn btn-info" (click)="sendFonction()">
+  Send Msg to Parent
+</button>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div [ngStyle]="{
+    backgroundColor: bgColor,
+    color : txtColor,
+    fontSize : size,
+    fontFamily : font
+  }">
+    Cours d'Angular
+  </div>
+  Background Color : <br>
+  <input type="text" class="form-control" [(ngModel)]="bgColor" >
+  Text Color : <br>
+  <input type="text" class="form-control" [(ngModel)]="txtColor">
+  Text Size : <br>
+  <input #sz type="number" class="form-control" (change)="changeSize(sz)">
+
+  <select [(ngModel)]="font">
+    <option *ngFor="let f of listeFonts" [value]="f">{{f}}</option>
+  </select>
+
+
+
+</div>

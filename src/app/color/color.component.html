@@ -1,0 +1,13 @@
+<div [hidden]="hd" [style.backgroundColor] = "color" >
+
+  Cours d'Angular coloré en {{ color }}
+
+</div>
+
+<button class="btn btn-primary" (click) = "swipeHd()" >
+  Show / Hide
+</button>
+
+<input type="text" class="form-control" [(ngModel)]="color" >
+
+<app-child [couleur]="color" (sendMsg)= "TraitementDuParent($event)"></app-child>
