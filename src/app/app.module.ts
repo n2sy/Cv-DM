@@ -12,6 +12,9 @@ import { ItemComponent } from './item/item.component';
 import { DetailComponent } from './detail/detail.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { CustomDirDirective } from './custom-dir.directive';
+import { NoImagePipe } from './no-image.pipe';
+import { SecondChildComponent } from './second-child/second-child.component';
+import { RecruterComponent } from './recruter/recruter.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { CustomDirDirective } from './custom-dir.directive';
     ItemComponent,
     DetailComponent,
     MsWordComponent,
-    CustomDirDirective
+    CustomDirDirective,
+    NoImagePipe,
+    SecondChildComponent,
+    RecruterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListepersonneService } from '../listepersonne.service';
 
 @Component({
   selector: 'app-color',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ColorComponent implements OnInit {
   color : string = "yellow";
   hd : boolean = false;
-  constructor() { }
+  constructor(private listeService : ListepersonneService) { }
 
   ngOnInit() {
+    console.log("ngOnInit : ");
+    console.log(this.listeService.getListePersonne());
+  }
+
+  ShowPers() {
+    console.log(this.listeService.getListePersonne());
   }
 
   swipeHd() {

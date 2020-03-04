@@ -1,7 +1,11 @@
 <div class="container">
+  <button class="btn btn-danger" (click)="addPersonne()">
+    Add new Person</button>
   <div class="row">
     <div class="col-md-5">
-      <app-liste [listePersonne]="listePersonne" (sendPers)="ReceivedPers($event)"></app-liste>
+      <!-- <app-liste [listePersonne]="listePersonne" (sendPers)="ReceivedPers($event)"></app-liste> -->
+      <app-liste (sendPers)="ReceivedPers($event)"></app-liste>
+    
     </div>
     <div class="col-md-7">
       <app-detail *ngIf="persSelected"  [persSelected]="persSelected" ></app-detail>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Personne } from '../model/personne';
+import { ListepersonneService } from '../listepersonne.service';
 
 
 @Component({
@@ -10,20 +11,22 @@ import { Personne } from '../model/personne';
 export class CvComponent implements OnInit {
   listePersonne : Personne[] = [];
   persSelected : Personne;
-  constructor() { }
+ 
+  constructor(private personneService : ListepersonneService) { }
 
   ngOnInit() {
-    this.listePersonne = [
-      new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg"),
-      new Personne(2, "bart", "simpson", 15, "doctor", "bart.jpeg"),
-      new Personne(3, "homer", "simpson", 58, "clown", "homer.jpg")
-
-    ];
-    console.log(this.listePersonne);
+    this.listePersonne = this.personneService.getListePersonne();
   }
 
   ReceivedPers(p) {
     this.persSelected = p;
+  }
+
+  addPersonne() {
+    this.personneService.addPersonne(
+      new Personne(10, "foulen", "ben foulen", 30, "Ingenieur")
+    );
+    console.log(this.personneService.getListePersonne())
   }
 
 }
