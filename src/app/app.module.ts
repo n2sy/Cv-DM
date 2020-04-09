@@ -15,6 +15,9 @@ import { CustomDirDirective } from './custom-dir.directive';
 import { NoImagePipe } from './no-image.pipe';
 import { SecondChildComponent } from './second-child/second-child.component';
 import { RecruterComponent } from './recruter/recruter.component';
+import { HomeComponent } from './home/home.component';
+import { DMWM_ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { RecruterComponent } from './recruter/recruter.component';
     CustomDirDirective,
     NoImagePipe,
     SecondChildComponent,
-    RecruterComponent
+    RecruterComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    DMWM_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]

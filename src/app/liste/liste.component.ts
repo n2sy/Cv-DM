@@ -5,7 +5,7 @@ import { ListepersonneService } from '../listepersonne.service';
 @Component({
   selector: 'app-liste',
   templateUrl: './liste.component.html',
-  styleUrls: ['./liste.component.css'],
+  styleUrls: ['./liste.component.css']
 
 })
 export class ListeComponent implements OnInit {
@@ -19,6 +19,10 @@ export class ListeComponent implements OnInit {
 
   sendPersonne(p : Personne) {
     this.sendPers.emit(p);
+  }
+
+  ShowListe() {
+    console.log(this.listePersonne);
   }
 
 }

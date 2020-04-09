@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ms-word',
@@ -11,13 +12,17 @@ export class MsWordComponent implements OnInit {
   txtColor : string;
   size : string;
   font : string;
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
 
   changeSize(s) {
     this.size = s.value+'px';
+  }
+
+  Reload() {
+    this.router.navigate(['msword']);
   }
 
   

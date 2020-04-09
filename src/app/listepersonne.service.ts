@@ -4,6 +4,7 @@ import { Personne } from './model/personne';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ListepersonneService {
   listePersonne = [
     new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg"),
