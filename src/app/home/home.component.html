@@ -1,3 +1,7 @@
 <h1>Bienvenue dans l'application DMWM Angular</h1>
 
 <button class="btn btn-danger" (click)="goToCv()">Go To CV</button>
+
+<select class="form-control" #rt (change)="changeRoute(rt)">
+    <option *ngFor="let comp of listeComponents" [value]="comp">{{comp}}</option>
+</select>

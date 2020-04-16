@@ -22,11 +22,5 @@ export class CvComponent implements OnInit {
     this.persSelected = p;
   }
 
-  addPersonne() {
-    this.personneService.addPersonne(
-      new Personne(10, "foulen", "ben foulen", 30, "Ingenieur")
-    );
-    console.log(this.personneService.getListePersonne())
-  }
 
 }

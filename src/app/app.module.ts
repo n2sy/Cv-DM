@@ -18,6 +18,10 @@ import { RecruterComponent } from './recruter/recruter.component';
 import { HomeComponent } from './home/home.component';
 import { DMWM_ROUTING } from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
+import { AddComponent } from './add/add.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     SecondChildComponent,
     RecruterComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    InfosComponent,
+    AddComponent,
+    NotFoundComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

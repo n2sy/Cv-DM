@@ -13,10 +13,7 @@ export class SecondChildComponent implements OnInit {
   constructor(private listeService : ListepersonneService) { }
 
   ngOnInit() {
-    console.log(this.listeService.getListePersonne());
-    this.listeService.addPersonne(
-      new Personne(10, "foulen", "ben foulen", 30, "Ingenieur")
-    )
+   
   }
 
 }

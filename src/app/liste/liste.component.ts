@@ -21,8 +21,6 @@ export class ListeComponent implements OnInit {
     this.sendPers.emit(p);
   }
 
-  ShowListe() {
-    console.log(this.listePersonne);
-  }
+ 
 
 }
