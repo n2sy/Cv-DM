@@ -1,0 +1,46 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <!-- <label for="name"></label>
+  <input ngModel #n="ngModel" required minlength="6" pattern="nidhal jelassi" type="text" class="form-control" id="name" name="name">
+  <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+    <p *ngIf="n.errors.required">Name is required</p>
+    <p *ngIf="n.errors.minlength">Name must be at least 8 characters</p>
+    <p *ngIf="n.errors.pattern">Name must only be Nidhal Jelassi</p>
+  </div>
+   -->
+  <!-- <div id="credentials" ngModelGroup="credentials" #cred="ngModelGroup"> -->
+    <label for="id">Login</label>
+    <input ngModel #log="ngModel" required email type="text" class="form-control" id="login" name="login">
+
+    <div class="alert alert-danger" *ngIf="log.invalid && log.dirty">Login must be an email</div>
+
+    <label for="password">Password</label>
+    <input ngModel type="text" class="form-control" id="password" name="Pwd">
+  <!-- </div> -->
+  <br>
+  <button class="btn btn-info" (click)="onRandomPwd(f)">Random Password</button>
+  <hr>
+  <button class="btn btn-danger" (click)="onRandomPwdPatch(f)">Random Password Patch</button>
+
+
+  <!-- <div class="alert alert-danger" *ngIf="cred.invalid">Invalid Credentials</div> -->
+
+  <!-- <label for="section">Section</label>
+  <select class="form-control" [ngModel]="defaultSection" id="section" name="section">
+    <option value="gl">Génie Logiciel</option>
+    <option value="dsen">Data Science</option>
+    <option value="dmwm">Web et Mobile</option>
+  </select>
+  <hr>
+
+  <label for="classroom"></label>
+  <input type="text" [(ngModel)]="myclass" class="form-control" id="classroom" name="classroom">
+  {{ myclass }} -->
+
+  <pre>
+    {{ f.value | json }}
+  </pre>
+
+  <button [disabled]="f.invalid" class="btn btn-primary">Sign in</button>
+  <br>
+  <button class="btn btn-warning" (click)="onReset(f)">Reset</button>
+</form>
