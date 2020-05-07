@@ -9,12 +9,12 @@ import { ListepersonneService } from '../listepersonne.service';
 
 })
 export class ListeComponent implements OnInit {
-  listePersonne : Personne[];
+  @Input() listePersonne : Personne[];
   @Output() sendPers = new EventEmitter();
   constructor(private listeService : ListepersonneService ) { }
 
   ngOnInit() {
-    this.listePersonne = this.listeService.getListePersonne();
+    
   }
 
   sendPersonne(p : Personne) {

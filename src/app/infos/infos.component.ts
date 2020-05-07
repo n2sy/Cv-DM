@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ListepersonneService } from '../listepersonne.service';
 import { Personne } from '../model/personne';
 
@@ -11,6 +11,7 @@ import { Personne } from '../model/personne';
 export class InfosComponent implements OnInit {
   pers : Personne;
   constructor(private activatedRoute : ActivatedRoute,
+    private router : Router,
     private cvService : ListepersonneService) { }
 
   ngOnInit() {
@@ -19,10 +20,24 @@ export class InfosComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(
       (p : Params) => {
-        this.pers = this.cvService.getPersonneById(p['id'])
-        console.log(this.pers);
+        this.cvService.getPersonneByIdAPI(p['id']).subscribe(
+          (response) => {
+            this.pers = response;
+          },
+          (error) => {
+            console.log('Error with GetPersonneById()');     
+          }
+        )
+      },
+      (error) => {
+        console.log('Error with Route Params !');
+        
       }
     )
+  }
+
+  goToUpdate() {
+    this.router.navigate(['cv/edit', this.pers.id])
   }
 
 }

@@ -1,3 +1,16 @@
-<p>
-  add works!
-</p>
+<div class="container">
+  <form #addForm="ngForm" (ngSubmit)="addPersonne(addForm.value)">
+    <label for="prenom">Prenom</label>
+    <input ngModel required type="text" class="form-control" id="prenom" name="prenom">
+    <label for="nom">Nom</label>
+    <input ngModel required type="text" class="form-control" id="nom" name="nom">
+    <label for="age">Age</label>
+    <input ngModel required type="number" class="form-control" id="age" name="age">
+    <label for="profession">Métier</label>
+    <input ngModel required type="text" class="form-control" id="profession" name="metier">
+    <label for="path">URL de l'avatar</label>
+    <input ngModel  type="text" class="form-control" id="path" name="path">
+
+    <button [disabled]="addForm.invalid" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>

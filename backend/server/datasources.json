@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "nidhaldb" :{
+    "host" : "localhost",
+    "port" : 8889,
+    "database" : "cvisie",
+    "user" : "root",
+    "password" : "root",
+    "connector" : "mysql"
+  }
+
+}

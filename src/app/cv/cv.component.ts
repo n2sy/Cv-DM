@@ -15,7 +15,17 @@ export class CvComponent implements OnInit {
   constructor(private personneService : ListepersonneService) { }
 
   ngOnInit() {
-    this.listePersonne = this.personneService.getListePersonne();
+    //this.listePersonne = this.personneService.getListePersonne();
+    this.personneService.getListePersonneAPI().subscribe(
+      (response) => {
+        this.listePersonne = response;
+      },
+      (error) => {
+        alert('Connexion impossible avec le serveur !')
+        console.log('Error with GET method');
+        
+      }
+    )
   }
 
   ReceivedPers(p) {

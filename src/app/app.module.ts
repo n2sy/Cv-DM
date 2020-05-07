@@ -23,6 +23,8 @@ import { AddComponent } from './add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
+import { HttpComponent } from './http/http.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -45,12 +47,14 @@ import { LoginComponent } from './login/login.component';
     AddComponent,
     NotFoundComponent,
     UpdateComponent,
-    LoginComponent
+    LoginComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    DMWM_ROUTING
+    DMWM_ROUTING,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
