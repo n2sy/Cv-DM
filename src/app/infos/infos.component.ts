@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ListepersonneService } from '../listepersonne.service';
 import { Personne } from '../model/personne';
+import { nextContext } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-infos',
@@ -38,6 +39,21 @@ export class InfosComponent implements OnInit {
 
   goToUpdate() {
     this.router.navigate(['cv/edit', this.pers.id])
+  }
+
+  goToDelete() {
+    if(confirm('Voulez-vous vraiment supprimer cette personne ?'))
+        {  
+          this.cvService.deletePersonneAPI(this.pers['id']).subscribe(
+            (response) => {
+              this.router.navigate(['cv']);
+            },
+            (error) => {
+              console.log('Error with Delete !');   
+            }
+          );
+          
+        }
   }
 
 }

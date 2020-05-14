@@ -8,18 +8,20 @@
   </div>
    -->
   <!-- <div id="credentials" ngModelGroup="credentials" #cred="ngModelGroup"> -->
+    <div class="alert alert-danger" *ngIf="erreur">Email et/ou mot de passe invalides</div>
+
     <label for="id">Login</label>
-    <input ngModel #log="ngModel" required email type="text" class="form-control" id="login" name="login">
+    <input ngModel #log="ngModel" required email type="text" class="form-control" id="login" name="email">
 
     <div class="alert alert-danger" *ngIf="log.invalid && log.dirty">Login must be an email</div>
 
     <label for="password">Password</label>
-    <input ngModel type="text" class="form-control" id="password" name="Pwd">
+    <input ngModel type="text" class="form-control" id="password" name="password">
   <!-- </div> -->
   <br>
-  <button class="btn btn-info" (click)="onRandomPwd(f)">Random Password</button>
+  <!-- <button class="btn btn-info" (click)="onRandomPwd(f)">Random Password</button>
   <hr>
-  <button class="btn btn-danger" (click)="onRandomPwdPatch(f)">Random Password Patch</button>
+  <button class="btn btn-danger" (click)="onRandomPwdPatch(f)">Random Password Patch</button> -->
 
 
   <!-- <div class="alert alert-danger" *ngIf="cred.invalid">Invalid Credentials</div> -->
@@ -35,12 +37,12 @@
   <label for="classroom"></label>
   <input type="text" [(ngModel)]="myclass" class="form-control" id="classroom" name="classroom">
   {{ myclass }} -->
-
+<!-- 
   <pre>
     {{ f.value | json }}
-  </pre>
+  </pre> -->
 
   <button [disabled]="f.invalid" class="btn btn-primary">Sign in</button>
-  <br>
-  <button class="btn btn-warning" (click)="onReset(f)">Reset</button>
+  <!-- <br>
+  <button class="btn btn-warning" (click)="onReset(f)">Reset</button> -->
 </form>

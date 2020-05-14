@@ -7,18 +7,22 @@ import { InfosComponent } from './infos/infos.component';
 import { AddComponent } from './add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UpdateComponent } from './update/update.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
+import { LogoutGuard } from './logout.guard';
 
 const dmwmRoutes : Routes = [
     {path: '', component: HomeComponent},
     //{path: 'cv', component:CvComponent, children:[
     {path: 'cv', children:[
         {path: '', component:CvComponent},
-        {path: 'add', component:AddComponent},
+        {path: 'add', component:AddComponent, canActivate : [LoginGuard]},
         {path: ':id', component:InfosComponent},
         {path: 'edit/:id', component:UpdateComponent},
     ]},
     {path: 'msword', component: MsWordComponent},
     {path: 'color', component: ColorComponent},
+    {path: 'login', component: LoginComponent, canActivate : [LogoutGuard]},
     {path: 'color/:cl', component: ColorComponent},
     {path: 'not-found', component: NotFoundComponent},
     {path: '**', redirectTo: 'not-found'}

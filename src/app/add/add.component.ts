@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-
+  erreur = false;
   constructor(private cvService : ListepersonneService,
     private router : Router) { }
 
@@ -16,8 +16,19 @@ export class AddComponent implements OnInit {
   }
 
   addPersonne(newPers) {
-    this.cvService.addPersonne(newPers);
-    this.router.navigate(['cv'])
+    //this.cvService.addPersonne(newPers);
+    //this.router.navigate(['cv']);
+    this.cvService.addPersonneAPI(newPers).subscribe(
+      (response) => {
+        this.router.navigate(['cv']);
+      },
+      (error) => {
+        this.erreur = true;
+        console.log('Error with AddPersonne()');
+        
+      }
+    )
+
 
   }
 

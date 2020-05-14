@@ -16,15 +16,32 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
-      (p: Params) => {
-        this.pers = this.cvService.getPersonneById(p['id']);
+      (p : Params) => {
+        this.cvService.getPersonneByIdAPI(p['id']).subscribe(
+          (response) => {
+            this.pers = response;
+          },
+          (error) => {
+            console.log('Error with GetPersonneById()');     
+          }
+        )
+      },
+      (error) => {
+        console.log('Error with Route Params !');
       }
     )
   }
 
   updatePersonne() {
-    this.cvService.updatePersonne(this.pers);
-    this.router.navigate(['cv']);
+    //this.cvService.updatePersonne(this.pers);
+    this.cvService.updatePersonneAPI(this.pers).subscribe(
+      (response) => {
+        this.router.navigate(['cv']);
+      },
+      (error) => {
+        console.log('Error with Update !');      
+      }
+    )
   }
 
 }
