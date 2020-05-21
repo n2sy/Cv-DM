@@ -10,14 +10,18 @@ import { Observable } from 'rxjs';
 export class ListepersonneService {
   link = "http://localhost:3000/api/personnes";
   listePersonne = [
-    new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg"),
-    new Personne(2, "bart", "simpson", 15, "doctor", "bart.jpeg"),
-    new Personne(3, "homer", "simpson", 58, "clown", "homer.jpg"),
-    new Personne(4, "marge", "simpson", 58, "clown", "")
-
+    new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg", "candidat"),
+    new Personne(2, "bart", "simpson", 15, "doctor", "bart.jpeg", "recrue"),
+    new Personne(3, "homer", "simpson", 58, "clown", "homer.jpg", "refuse"),
+    new Personne(4, "hachem", "zarrad", 28, "ingenieur", "avatar.jpg", "refuse"),
+    new Personne(5, "rania", "loussif", 18, "ingenieur", "avatar.jpg", "candidat")
   ];
 
   constructor(private http : HttpClient) { }
+
+  filterPersonne(tab, property) {
+    return tab.filter((element) => element.status == property)
+  }
 
   getListePersonneAPI() : Observable<Personne[]> {
     return this.http.get<Personne[]>(this.link)

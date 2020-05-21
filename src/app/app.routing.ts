@@ -10,6 +10,7 @@ import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import { LogoutGuard } from './logout.guard';
+import { RhManagerComponent } from './rh-manager/rh-manager.component';
 
 const dmwmRoutes : Routes = [
     {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const dmwmRoutes : Routes = [
     {path: 'color', component: ColorComponent},
     {path: 'login', component: LoginComponent, canActivate : [LogoutGuard]},
     {path: 'color/:cl', component: ColorComponent},
+    {path: 'rhmanager', component: RhManagerComponent},
     {path: 'not-found', component: NotFoundComponent},
     {path: '**', redirectTo: 'not-found'}
 

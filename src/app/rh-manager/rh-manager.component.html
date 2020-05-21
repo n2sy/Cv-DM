@@ -1,0 +1,74 @@
+<div class="modal fade" [ngClass]="{'show' : showValue}" id="exampleModal" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalLabel" aria-hidden="true" [ngStyle]="{'display' : displayValue }" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajout d'un candidat</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" (click)="hideModal()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="nom">Nom </label>
+        <input #nom type="text" class="form-control" id="nom">
+        <label for="prenom"> Prénom</label>
+        <input #prenom type="text" class="form-control" id="prenom">
+        <label for="path">Avatar</label>
+        <input #path type="text" class="form-control" id="path">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="hideModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="savePerson(nom.value, prenom.value, path.value)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h2 cdkDrag>Candidats</h2>
+
+    <div
+    cdkDropList
+    #candList="cdkDropList"
+    [cdkDropListData]="listeCandidats"
+    [cdkDropListConnectedTo]="[recruesList, refuseList]"
+    class="candidat example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="alert alert-primary" *ngFor="let c of listeCandidats" cdkDrag [cdkDragData]="c">
+      <img src="assets/{{c.path}}"> {{ c.prenom }} {{ c.nom }}
+    </div>
+    <button class="btn btn-primary" (click)="showModal()">+ Add</button>
+  </div>
+
+  </div>
+  <div class="col-md-4">
+    <h2>Recrues</h2>
+
+    <div
+    cdkDropList
+    #recruesList="cdkDropList"
+    [cdkDropListData]="listeRecrues"
+    [cdkDropListConnectedTo]="[candList, refuseList]"
+    class="recrue example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="alert alert-success" *ngFor="let r of listeRecrues" cdkDrag [cdkDragData]="r">
+      <img src="assets/{{r.path}}"> {{ r.prenom }} {{ r.nom }}
+    </div>  
+  </div>
+
+  </div>
+  <div class="col-md-4">
+    <h2>Refusés</h2>
+    <div
+    cdkDropList
+    #refuseList="cdkDropList"
+    [cdkDropListData]="listeRefuses"
+    [cdkDropListConnectedTo]="[candList, recruesList]"
+    class="refuse example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="alert alert-danger" *ngFor="let ref of listeRefuses" cdkDrag [cdkDragData]="ref">
+      <img src="assets/{{ref.path}}"> {{ ref.prenom }} {{ ref.nom }}
+    </div>  
+   </div>
+  </div>
+</div>
