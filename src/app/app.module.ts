@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { loginInterceptorProvider } from './login.interceptor';
 import { LoginGuard } from './login.guard';
 import { LogoutGuard } from './logout.guard';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { LogoutGuard } from './logout.guard';
     NotFoundComponent,
     UpdateComponent,
     LoginComponent,
-    HttpComponent
+    HttpComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,9 @@ import { LogoutGuard } from './logout.guard';
     DMWM_ROUTING,
     HttpClientModule
   ],
-  providers: [loginInterceptorProvider, LoginGuard, LogoutGuard],
+  providers: [//loginInterceptorProvider, 
+    LoginGuard, 
+    LogoutGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

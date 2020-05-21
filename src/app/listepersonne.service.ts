@@ -27,6 +27,14 @@ export class ListepersonneService {
     return this.listePersonne
   }
 
+  getListePersonneByNameAPI(name) : Observable<Personne[]> {
+    let filterValue = `{"where":{"nom":{"like":"%${name}%"}}}`;
+    console.log(filterValue);
+    
+    const p = new HttpParams().set('filter', filterValue);
+    return this.http.get<Personne[]>(this.link, {params : p})
+  }
+
   getPersonneByIdAPI(id) : Observable<Personne> {
     //return this.http.get<Personne>(this.link + '/' +id);
     return this.http.get<Personne>(`${this.link}/${id}`);
@@ -35,6 +43,8 @@ export class ListepersonneService {
   getPersonneById(id) {
     return this.listePersonne.find((p) => p.id == id)
   }
+
+  
 
   addPersonneAPI(p) {
     return this.http.post(this.link, p);
