@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  link = "http://localhost:3000/api/Users/login";
+  link = "http://localhost:3000/api/Users/login";private http: HttpClient
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   login(identifiants): Observable<any> {
     return this.http.post(this.link, identifiants);
